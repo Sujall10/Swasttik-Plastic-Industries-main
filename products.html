@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Swasttik Plastic Industries</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Popup Modal Styles */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .popup-close:hover {
+            color: #333;
+        }
+
+        .popup-header {
+            margin-bottom: 25px;
+            padding-right: 30px;
+        }
+
+        .popup-header h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .popup-header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .popup-image {
+            margin-bottom: 25px;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .popup-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .popup-section {
+            margin-bottom: 25px;
+        }
+
+        .popup-section h3 {
+            color: #34495e;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        .popup-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popup-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .popup-details li:last-child {
+            border-bottom: none;
+        }
+
+        .popup-details li strong {
+            color: #2c3e50;
+            min-width: 180px;
+            font-weight: 600;
+        }
+
+        .popup-details li span {
+            color: #555;
+            flex: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 20px;
+                width: 95%;
+            }
+
+            .popup-header h2 {
+                font-size: 24px;
+            }
+
+            .popup-details li {
+                flex-direction: column;
+            }
+
+            .popup-details li strong {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="Kelvin Composites">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="products.html" class="active">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="products.html#product-categories-section">Healthcare</a>
+                            <a href="products.html#product-categories-section">Electrical</a>
+                            <a href="products.html#product-categories-section">Household</a>
+                            <a href="products.html#product-categories-section">Custom Solutions</a>
+                        </div>
+                    </li>
+                    <li><a href="applications.html">Applications</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Products</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Products Overview Section -->
+    <section class="products-overview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Engineered for strength, durability, and lightweight performance</p>
+            </div>
+            <div class="products-tabs">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-tab="marine">Moulding</div>
+                    <div class="tab-btn" data-tab="industrial">New Mould Development</div>
+                    <div class="tab-btn" data-tab="aerospace">Insert Moulding</div>
+                    <div class="tab-btn" data-tab="overmoulding">Over Moulding</div>
+                    <div class="tab-btn" data-tab="assemblyoperations">Assembly Operations</div>
+                </div>
+                <div class="tab-content active fade-in" id="marine">
+                    <div class="tab-text">
+                        <h3>High-Precision Moulding Services</h3>
+                        <p>High-precision moulding services, utilizing advanced technology and high-quality materials. We specialize in custom moulding for a wide range of industries, ensuring consistent product quality, durability, and design accuracy.</p>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="industrial">
+                    <div class="tab-text">
+                        <h3>New Mould Development</h3>
+                        <p>We provide expert mould development services, designing and producing new moulds tailored to meet specific client requirements. Our team ensures that each mould is created with attention to detail, precision, and functionality, supporting efficient and scalable production.</p>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="aerospace">
+                    <div class="tab-text">
+                        <h3>Insert Moulding</h3>
+                        <p>Insert moulding at Swasttik involves embedding metal, electronic, or other materials into plastic components during the moulding process. This method enhances the strength and functionality of the parts, offering greater durability for complex applications in industries like automotive, healthcare, and electronics.</p>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="overmoulding">
+                    <div class="tab-text">
+                        <h3>Over Moulding</h3>
+                        <p>Over moulding is a service where we apply an additional layer of plastic over a pre-existing component, typically to improve grip, protection, or insulation. Swasttik uses this technique to enhance the performance and aesthetics of various products, from handles to electronic housings.</p>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="assemblyoperations">
+                    <div class="tab-text">
+                        <h3>Assembly Operations</h3>
+                        <p>Our assembly operations go beyond simple moulding. We provide end-to-end solutions that include the integration of multiple parts into a finished product. Whether it's adding electronics, labeling, or final testing, Swasttik ensures that all assembly processes are carried out with precision and in line with client specifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section ">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <img src="image.png" alt="NA">
+                    <h3>TREFOIL CLAMPS</h3>
+                    <p>High-performance plastic trefoil clamps for secure cable management in industrial applications.</p>
+                    <a href="#" class="btn btn-outline" data-modal="trefoilModal">View Products</a>
+                </div>
+                <div class="product-card fade-in" >
+                    <img src="WhatsApp Image 2025-12-27 at 7.53.49 PM.jpeg" alt="NA">
+                    <h3>CABLE TIES</h3>
+                    <p>Durable plastic cable ties for efficient bundling and organization of cables and wires.</p>
+                    <a href="#" class="btn btn-outline" data-modal="cabletiesModal">View Products</a>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="WhatsApp Image 2025-12-27 at 7.53.49 PMmmm.jpeg" alt="NA">
+                    <h3>CABLE SPACERS</h3>
+                    <p>Reliable plastic cable spacers for maintaining proper cable separation and organization.</p>
+                    <a href="#" class="btn btn-outline" data-modal="cablespacersModal">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trefoil Clamps Popup Modal -->
+    <div id="trefoilModal" class="popup-modal">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <div class="popup-header">
+                <h2>TREFOIL CLAMPS</h2>
+                <p>Detailed Product Specifications</p>
+            </div>
+
+            <div class="popup-image">
+                <img src="image.png" alt="Trefoil Clamps">
+            </div>
+            
+            <div class="popup-section">
+                <h3>Specifications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <strong>Material:</strong>
+                        <span>Engineering Plastic (Polyamide / Nylon – as per requirement)</span>
+                    </li>
+                    <li>
+                        <strong>Design:</strong>
+                        <span>Three-cable clamping configuration</span>
+                    </li>
+                    <li>
+                        <strong>Operating Temperature:</strong>
+                        <span>-20°C to +90°C</span>
+                    </li>
+                    <li>
+                        <strong>Resistance:</strong>
+                        <span>Vibration resistant, UV resistant</span>
+                    </li>
+                    <li>
+                        <strong>Mounting Options:</strong>
+                        <span>Wall, ladder, tray, and panel mounting</span>
+                    </li>
+                    <li>
+                        <strong>Finish:</strong>
+                        <span>Smooth, consistent surface finish</span>
+                    </li>
+                    <li>
+                        <strong>Customization:</strong>
+                        <span>Sizes and designs available on request</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="popup-section">
+                <h3>Applications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <span>• Electrical panels and switchgear assemblies</span>
+                    </li>
+                    <li>
+                        <span>• Power cable management systems</span>
+                    </li>
+                    <li>
+                        <span>• Industrial electrical installations</span>
+                    </li>
+                    <li>
+                        <span>• Contract moulding for OEM-specific trefoil clamp designs</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cable Ties Popup Modal -->
+    <div id="cabletiesModal" class="popup-modal">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <div class="popup-header">
+                <h2>CABLE TIES</h2>
+                <p>Detailed Product Specifications</p>
+            </div>
+
+            <div class="popup-image">
+                <img src="WhatsApp Image 2025-12-27 at 7.53.49 PM.jpeg" alt="Cable Ties">
+            </div>
+            
+            <div class="popup-section">
+                <h3>Specifications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <strong>Material:</strong>
+                        <span>High-grade Nylon 6.6 (UV stabilized)</span>
+                    </li>
+                    <li>
+                        <strong>Design:</strong>
+                        <span>Self-locking mechanism with serrated design</span>
+                    </li>
+                    <li>
+                        <strong>Operating Temperature:</strong>
+                        <span>-40°C to +85°C</span>
+                    </li>
+                    <li>
+                        <strong>Tensile Strength:</strong>
+                        <span>Available in various strengths from 18 lbs to 250 lbs</span>
+                    </li>
+                    <li>
+                        <strong>Resistance:</strong>
+                        <span>Chemical resistant, UV resistant, flame retardant options available</span>
+                    </li>
+                    <li>
+                        <strong>Sizes:</strong>
+                        <span>Multiple lengths from 100mm to 900mm</span>
+                    </li>
+                    <li>
+                        <strong>Colors:</strong>
+                        <span>Natural, Black, and custom colors on request</span>
+                    </li>
+                    <li>
+                        <strong>Customization:</strong>
+                        <span>Custom lengths, widths, and specifications available</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="popup-section">
+                <h3>Applications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <span>• Cable bundling and wire management</span>
+                    </li>
+                    <li>
+                        <span>• Automotive and aerospace wire harnessing</span>
+                    </li>
+                    <li>
+                        <span>• Industrial equipment cable organization</span>
+                    </li>
+                    <li>
+                        <span>• Construction and telecommunications installations</span>
+                    </li>
+                    <li>
+                        <span>• Marine and outdoor applications</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cable Spacers Popup Modal -->
+    <div id="cablespacersModal" class="popup-modal">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <div class="popup-header">
+                <h2>CABLE SPACERS</h2>
+                <p>Detailed Product Specifications</p>
+            </div>
+
+            <div class="popup-image">
+                <img src="WhatsApp Image 2025-12-27 at 7.53.49 PMmmm.jpeg" alt="Cable Spacers">
+            </div>
+            
+            <div class="popup-section">
+                <h3>Specifications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <strong>Material:</strong>
+                        <span>High-density engineering plastic (Polyamide/Polypropylene)</span>
+                    </li>
+                    <li>
+                        <strong>Design:</strong>
+                        <span>Multiple cavity design for cable separation</span>
+                    </li>
+                    <li>
+                        <strong>Operating Temperature:</strong>
+                        <span>-30°C to +90°C</span>
+                    </li>
+                    <li>
+                        <strong>Configuration:</strong>
+                        <span>Available in 2-way, 3-way, and 4-way configurations</span>
+                    </li>
+                    <li>
+                        <strong>Resistance:</strong>
+                        <span>Weather resistant, UV stable, corrosion resistant</span>
+                    </li>
+                    <li>
+                        <strong>Mounting:</strong>
+                        <span>Easy snap-fit installation, no tools required</span>
+                    </li>
+                    <li>
+                        <strong>Finish:</strong>
+                        <span>Smooth surface for cable protection</span>
+                    </li>
+                    <li>
+                        <strong>Customization:</strong>
+                        <span>Custom sizes and configurations available on request</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="popup-section">
+                <h3>Applications</h3>
+                <ul class="popup-details">
+                    <li>
+                        <span>• Power transmission and distribution networks</span>
+                    </li>
+                    <li>
+                        <span>• Underground and overhead cable installations</span>
+                    </li>
+                    <li>
+                        <span>• Cable tray and conduit systems</span>
+                    </li>
+                    <li>
+                        <span>• Industrial cable management systems</span>
+                    </li>
+                    <li>
+                        <span>• Telecommunications infrastructure</span>
+                    </li>
+                    <li>
+                        <span>• Railway and metro cable routing</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Features Section -->
+    <section class="product-features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Plastic Molding Solutions?</h2>
+                <p>Delivering performance, reliability, and innovation</p>
+            </div>
+            <div class="features-grid fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h4>Engineering Plastic Material Expertise</h4>
+                    <p>Deep knowledge of Polyamide, Nylon, PP, and other engineering-grade plastics for optimal performance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Flexible Production Capacity</h4>
+                    <p>Scalable manufacturing and overflow support to meet varying demand and project timelines.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h4>Cost-Efficient Manufacturing</h4>
+                    <p>Competitive pricing without compromising quality through optimized processes and material selection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Consistent Quality & Repeatability</h4>
+                    <p>Rigorous quality control ensuring every component meets exact specifications batch after batch.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Prototyping to Volume Production</h4>
+                    <p>Complete support from initial concept and prototyping through to full-scale production runs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>International Buyer Support</h4>
+                    <p>Experienced in working with global clients, offering seamless communication and reliable delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in">
+        <div class="container">
+            <h2>Need a Custom Composite Solution?</h2>
+            <p>Our engineering team can develop materials tailored to your specific requirements.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Our Experts</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="NA" class="footer-logo">
+                    <p>we transform your ideas into high-quality plastic components with precision, innovation, and care.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="applications.html">Applications</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="products.html#product-categories-section">Household</a></li>
+                        <li><a href="products.html#product-categories-section">Healthcare</a></li>
+                        <li><a href="products.html#product-categories-section">Electrical</a></li>
+                        <li><a href="products.html#product-categories-section">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 916/2 wagodia gidc 391760 vadodara gujarat.</li>
+                        <li><i class="fas fa-phone"></i>+91 9157757979</li>
+                        <li><i class="fas fa-envelope"></i>Swasttikplasticindustries@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2020 - Swasttik Plastic Industries. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabContainer = document.querySelector('.products-tabs');
+            const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+            const tabContents = tabContainer.querySelectorAll('.tab-content');
+        
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-tab');
+        
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+        
+                    button.classList.add('active');
+                    tabContainer.querySelector(`#${targetId}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const fadeElements = document.querySelectorAll('.fade-in');
+        
+          const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+          };
+        
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, options);
+        
+          fadeElements.forEach(element => {
+            observer.observe(element);
+          });
+        });
+    </script>
+
+    <script>
+        // Universal Popup Modal Functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all buttons with data-modal attribute
+            const modalButtons = document.querySelectorAll('[data-modal]');
+            
+            modalButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    
+                    if (modal) {
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Get all close buttons
+            const closeButtons = document.querySelectorAll('.popup-close');
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.popup-modal');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close modal when clicking outside
+            const modals = document.querySelectorAll('.popup-modal');
+            
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const activeModal = document.querySelector('.popup-modal.active');
+                    if (activeModal) {
+                        activeModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+    </script>
+
+    <a href="https://wa.me/9157757979" class="whatsapp-float" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Chat" />
+    </a>
+</body>
+</html>

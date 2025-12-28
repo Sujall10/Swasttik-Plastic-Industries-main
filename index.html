@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasttik Plastic Industries</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Hero Video Styles */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 90%;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .slide-content h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-out;
+            line-height: 1.2;
+        }
+
+        .slide-content p {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                height: 80vh;
+                min-height: 450px;
+            }
+
+            .slide-content {
+                width: 85%;
+            }
+
+            .btn {
+                padding: 12px 35px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+                min-height: 400px;
+            }
+
+            .hero-video {
+                /* On mobile, prioritize width to avoid black bars */
+                width: 100%;
+                height: auto;
+                min-height: 100%;
+            }
+
+            .slide-content {
+                width: 90%;
+                padding: 0 15px;
+            }
+
+            .slide-content h1 {
+                margin-bottom: 1rem;
+            }
+
+            .slide-content p {
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .hero {
+                height: 60vh;
+                min-height: 350px;
+            }
+
+            .slide-content {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            .slide-content h1 {
+                margin-bottom: 0.8rem;
+            }
+
+            .slide-content p {
+                margin-bottom: 1.2rem;
+            }
+
+            .btn {
+                padding: 10px 25px;
+            }
+        }
+
+        /* Portrait orientation optimization */
+        @media (orientation: portrait) and (max-width: 768px) {
+            .hero-video {
+                width: auto;
+                height: 100%;
+                min-width: 100%;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero {
+                height: 100vh;
+                min-height: 300px;
+            }
+
+            .slide-content h1 {
+                margin-bottom: 0.5rem;
+            }
+
+            .slide-content p {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="Swasttik Plastic Industries">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="products.html#product-categories-section">Healthcare</a>
+                            <a href="products.html#product-categories-section">Electrical</a>
+                            <a href="products.html#product-categories-section">Household</a>
+                            <a href="products.html#product-categories-section">Custom Solutions</a>
+                        </div>
+                    </li>
+                    <li><a href="applications.html">Applications</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Responsive Video -->
+     <section class="hero">
+    <div class="hero-slider">
+        <div class="hero-video-container">
+            <div class="slide active">
+                <video class="hero-video " autoplay muted loop playsinline>
+              <source src="WhatsApp Video 2025-12-27 at 7.53.47 PM.mp4" type="video/mp4">
+              <source src="your-video.webm" type="video/webm">
+              Your browser does not support the video tag.
+                </video>
+            </div>
+          <div class="hero-overlay"></div>
+
+          <div class="slide-content">
+              <h1>SWASTTIK PLASTIC INDUSTRIES</h1>
+              <p>Precision is our craftsmanship.</p>
+              <a href="#about-section" class="btn btn-primary">Learn More</a>
+          </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section fade-in" id="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Swasttik Plastic Industries is a professionally managed manufacturer specializing in contract molding and engineering plastics solutions for electrical and industrial applications. With a strong monthly production capacity of 10 tons, we support businesses seeking reliable, scalable, and cost-efficient plastic manufacturing.</p>
+                <p>Our product portfolio includes trefoil clamps, cable ties, and cable spacers, developed to meet stringent performance, safety, and durability requirements. Through optimized manufacturing processes and careful material selection, we help our customers address challenges such as capacity limitations, production cost pressures, and the need for consistent quality.</p>
+                <p>At Swasttik Plastic Industries, we place strong emphasis on engineering precision, process control, and long-term partnerships. By working closely with our clients, we deliver flexible manufacturing support and dependable solutions that enhance operational efficiency and product reliability.</p>
+                <p>Our approach is driven by quality, transparency, and continuous improvement, positioning us as a trusted partner for companies looking to strengthen their supply chain with dependable plastic components.</p>
+                <a href="about.html" class="btn btn-secondary">Read More About Us</a>
+            </div>
+            <div class="about-image">
+                <img src="7010492b-e0fb-44eb-ab8e-b483844830fe.jpg" alt="About Swasttik Plastic Industries">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <img src="Householdd.png" alt="Electrical Products">
+                    <h3>Electrical Products</h3>
+                    <p>Engineered plastic parts designed for electrical and electronic applications.</p>
+                    <a href="products.html#product-categories-section" class="btn btn-outline">View Products</a>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="Houusee.png" alt="Household Products">
+                    <h3>Household Products</h3>
+                    <p>Durable, high-quality molded products for everyday household use.</p>
+                    <a href="products.html#product-categories-section" class="btn btn-outline">View Products</a>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="Healthcaree.png" alt="Healthcare Products">
+                    <h3>Healthcare Products</h3>
+                    <p>Precision-molded components for critical healthcare applications.</p>
+                    <a href="products.html#product-categories-section" class="btn btn-outline">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications-section">
+        <div class="container">
+            <h2 class="section-title">Applications</h2>
+            <div class="applications-tabs">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-tab="marine">Electric Applications</div>
+                    <div class="tab-btn" data-tab="industrial">Healthcare Applications</div>
+                    <div class="tab-btn" data-tab="aerospace">Household Applications</div>
+                </div>
+                <div class="tab-content active fade-in" id="marine">
+                    <div class="tab-image">
+                        <img src="Electriccc.jpg" alt="Electric Applications">
+                    </div>
+                    <div class="tab-text">
+                        <h3>Electric Applications</h3>
+                        <p>Swasttik manufactures reliable and precision-moulded plastic components for the electrical industry, ensuring safety, durability, and performance</p>
+                        <ul>
+                            <li>Switch & Socket Covers</li>
+                            <li>Cable Management Components</li>
+                            <li>Electrical Enclosures</li>
+                            <li>Plug & Adapter Casings</li>
+                            <li>Insulating Parts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="industrial">
+                    <div class="tab-image">
+                        <img src="Health  care.jpg" alt="Healthcare Applications">
+                    </div>
+                    <div class="tab-text">
+                        <h3>Healthcare Applications</h3>
+                        <p>Swasttik Plastic Industries produces high-quality plastic components for the healthcare sector, focusing on safety, precision, and hygiene.</p>
+                        <ul>
+                            <li>Syringe & IV Set Parts</li>
+                            <li>Diagnostic Device Housings</li>
+                            <li>Surgical Tool Components</li>
+                            <li>Medical Consumables</li>
+                            <li>Insert Moulded Parts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content fade-in" id="aerospace">
+                    <div class="tab-image">
+                        <img src="HOuseHOld.jpg" alt="Household Applications">
+                    </div>
+                    <div class="tab-text">
+                        <h3>Household Applications</h3>
+                        <p>Swasttik manufactures a wide range of durable and functional plastic products for daily household use</p>
+                        <ul>
+                            <li>Storage Containers</li>
+                            <li>Buckets and Tubs</li>
+                            <li>Kitchenware & Organizers</li>
+                            <li>Bathroom Accessories</li>
+                            <li>Multi-Purpose Utility Items</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section fade-in">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <p>"Swasttik plastic provided us with exceptional materials that exceeded our performance expectations. Their technical expertise and customer service are unmatched in the industry."</p>
+                </div>
+                <div class="testimonial">
+                    <p>"We've been working with Swasttik plastic for over 5 years and their composite solutions have helped us reduce weight while increasing durability in our components."</p>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in">
+        <div class="container">
+            <h2>Ready to Discuss Your Project?</h2>
+            <p>Contact our team of experts to find the perfect solution for your needs.</p>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="Swasttik Plastic Industries" class="footer-logo">
+                    <p>We transform your ideas into high-quality plastic components with precision, innovation, and care.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="applications.html">Applications</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="products.html#product-categories-section">Household</a></li>
+                        <li><a href="products.html#product-categories-section">Healthcare</a></li>
+                        <li><a href="products.html#product-categories-section">Electrical</a></li>
+                        <li><a href="products.html#product-categories-section">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 916/2 wagodia gidc 391760 vadodara gujarat.</li>
+                        <li><i class="fas fa-phone"></i> +91 9157757979</li>
+                        <li><i class="fas fa-envelope"></i> Swasttikplasticindustries@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2020 - Swasttik Plastic Industries. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/9157757979" class="whatsapp-float" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Chat" />
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</body>
+</html>
