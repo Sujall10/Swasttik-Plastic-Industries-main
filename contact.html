@@ -4,25 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Kelvin Composites</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+       
+        
+        /* Form Styles */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.08);
+        }
+        
+        .contact-form h2 {
+            color: #ff6600;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ff6600;
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-section h3 {
+            color: #ff6600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .btn-secondary {
+            padding: 12px 30px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-next,
+        .btn-prev {
+            padding: 12px 30px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-next:hover,
+        .btn-prev:hover {
+            background: #d05707;
+        }
+        
+        .btn-prev {
+            background: #6c757d;
+        }
+        
+        .btn-prev:hover {
+            background: #5a6268;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #d05707);
+            width: 12.5%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .step-indicator {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6600;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .checkbox-group, 
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-group label, 
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .checkbox-group input[type="checkbox"],
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        #industry-other {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .form-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .form-note p {
+            margin: 0;
+            color: #856404;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 15px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #d05707;
+        }
+        
+        /* Map Section */
+     
+     
+       
+        
+    </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <!-- <div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +1 (123) 456-7890</span>
-                <span><i class="fas fa-envelope"></i> info@kelvincomposites.com</span>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -34,7 +237,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
-                        <a href="products.html" >Products <i class="fas fa-chevron-down"></i></a>
+                        <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <a href="products.html#product-categories-section">Healthcare</a>
                             <a href="products.html#product-categories-section">Electrical</a>
@@ -69,21 +272,21 @@
     <section class="contact-section">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info fade-in">
                     <h2>Get In Touch</h2>
                     <p>Have questions about our products or services? Our team is ready to help you find the right composite solution for your needs.</p>
                     
-                    <div class="info-item fade-in">
+                    <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="info-content">
                             <h4>Headquarters</h4>
-                            <p>916/2 wagodia gidc <br>391760, Vadodara<br>Gujarat.</p>
+                            <p>916/2 wagodia gidc<br>391760, Vadodara<br>Gujarat, India</p>
                         </div>
                     </div>
                     
-                    <div class="info-item fade-in">
+                    <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -93,7 +296,7 @@
                         </div>
                     </div>
                     
-                    <div class="info-item fade-in">
+                    <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -103,71 +306,261 @@
                         </div>
                     </div>
                     
-                    <div class="info-item fade-in">
+                    <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="info-content">
                             <h4>Business Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 5:00 PM EST<br>Saturday - Sunday: Closed</p>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday - Sunday: Closed</p>
                         </div>
                     </div>
                     
-                    <div class="contact-social fade-in">
+                    <div class="contact-social">
                         <h4>Follow Us</h4>
                         <div class="social-links">
-                            <!-- <a href="#"><i class="fab fa-facebook-f"></i></a> -->
-                            <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
-                            <a href="https://www.linkedin.com/in/rutvik-panchal-964327171?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
-                            <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+                            <a href="https://www.linkedin.com/in/rutvik-panchal-964327171" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form fade-in" id="contact-form">
-                    <h2>Send Us a Message</h2>
+                <div class="contact-form fade-in">
+                    <h2>Business Inquiry Form</h2>
+                    
+                    <!-- Progress Bar -->
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    
+                    <!-- Step Indicator -->
+                    <div class="step-indicator">
+                        <span id="currentStep">Step 1</span> of 8
+                    </div>
                     
                     <form id="contactForm">
-                        <div class="form-section">
+                        <!-- Section 1: Company Information -->
+                        <div class="form-section active" data-step="1">
                             <h3>1. Company Information</h3>
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            
+                            <div class="form-group">
+                                <label for="company">Company Name *</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name">Contact Person Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="designation">Designation</label>
+                                <input type="text" id="designation" name="designation">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone / WhatsApp *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+
+                        <!-- Section 2: Product Information -->
+                        <div class="form-section" data-step="2">
+                            <h3>2. Product Information</h3>
+                            
+                            <div class="form-group">
+                                <label>Product Type *</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="product_type" value="Trefoil Clamp"> Trefoil Clamp</label>
+                                    <label><input type="checkbox" name="product_type" value="Cable Tie"> Cable Tie</label>
+                                    <label><input type="checkbox" name="product_type" value="Cable Spacer"> Cable Spacer</label>
+                                    <label><input type="checkbox" name="product_type" value="Contract Moulded Component"> Contract Moulded Component (Custom Part)</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Application / Industry Sector *</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="industry" value="Electrical & Switchgear"> Electrical & Switchgear</label>
+                                    <label><input type="checkbox" name="industry" value="Industrial Equipment"> Industrial Equipment</label>
+                                    <label><input type="checkbox" name="industry" value="Power & Energy"> Power & Energy</label>
+                                    <label><input type="checkbox" name="industry" value="Automotive / EV"> Automotive / EV (Non-safety parts)</label>
+                                    <label><input type="checkbox" name="industry" value="Other" id="industry-other-check"> Other</label>
+                                </div>
+                                <input type="text" id="industry-other" name="industry_other" placeholder="Please specify other industry">
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+
+                        <!-- Section 3: Technical Details -->
+                        <div class="form-section" data-step="3">
+                            <h3>3. Technical Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="material">Material Requirement (if known)</label>
+                                <input type="text" id="material" name="material" placeholder="e.g., PP, ABS, Nylon">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="temperature">Operating Temperature Requirement</label>
+                                <input type="text" id="temperature" name="temperature" placeholder="e.g., -20°C to 80°C">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="special_req">Special Requirements (UV resistance, strength, etc.)</label>
+                                <textarea id="special_req" name="special_req" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Drawing / Sample Available</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="drawing_available" value="Yes"> Yes (to be shared)</label>
+                                    <label><input type="radio" name="drawing_available" value="No"> No</label>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company">
+
+                        <!-- Section 4: Dimensions & Specifications -->
+                        <div class="form-section" data-step="4">
+                            <h3>4. Dimensions & Specifications</h3>
+                            
+                            <div class="form-group">
+                                <label for="dimensions">Size / Dimensions</label>
+                                <input type="text" id="dimensions" name="dimensions" placeholder="e.g., 100mm x 50mm x 20mm">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cable_diameter">Cable Diameter (if applicable)</label>
+                                <input type="text" id="cable_diameter" name="cable_diameter" placeholder="e.g., 25mm">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qty_per_piece">Quantity per piece (if assembly)</label>
+                                <input type="text" id="qty_per_piece" name="qty_per_piece">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="customization">Any customization required</label>
+                                <textarea id="customization" name="customization" rows="3"></textarea>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="product-info">Product Information</option>
-                                <option value="technical-support">Technical Support</option>
-                                <option value="sales">Sales Inquiry</option>
-                                <option value="custom-solution">Custom Solution</option>
-                                <option value="other">Other</option>
-                            </select>
+
+                        <!-- Section 5: Order Details -->
+                        <div class="form-section" data-step="5">
+                            <h3>5. Order Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="annual_qty">Estimated Annual / Monthly Quantity *</label>
+                                <input type="text" id="annual_qty" name="annual_qty" placeholder="e.g., 10,000 per month" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trial_qty">Initial Trial Quantity</label>
+                                <input type="text" id="trial_qty" name="trial_qty" placeholder="e.g., 500 units">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="target_price">Target Price (optional)</label>
+                                <input type="text" id="target_price" name="target_price" placeholder="e.g., $5 per unit">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="delivery_location">Delivery Location (Country/City)</label>
+                                <input type="text" id="delivery_location" name="delivery_location">
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+
+                        <!-- Section 6: Contract Moulding -->
+                        <div class="form-section" data-step="6">
+                            <h3>6. Contract Moulding (If Applicable)</h3>
+                            
+                            <div class="form-group">
+                                <label>Is this a custom-moulded component?</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="custom_moulded" value="Yes"> Yes</label>
+                                    <label><input type="radio" name="custom_moulded" value="No"> No</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Tooling Available</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="tooling" value="Yes"> Yes</label>
+                                    <label><input type="radio" name="tooling" value="No"> No</label>
+                                    <label><input type="radio" name="tooling" value="Need New Tool"> Need New Tool</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="production_volume">Expected Production Volume</label>
+                                <input type="text" id="production_volume" name="production_volume">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeline">Project Timeline</label>
+                                <input type="text" id="timeline" name="timeline" placeholder="e.g., 3 months">
+                            </div>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+
+                        <!-- Section 7: Commercial Requirements -->
+                        <div class="form-section" data-step="7">
+                            <h3>7. Commercial Requirements</h3>
+                            
+                            <div class="form-group">
+                                <label for="lead_time">Required Lead Time</label>
+                                <input type="text" id="lead_time" name="lead_time" placeholder="e.g., 4-6 weeks">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="packaging">Packaging Requirement (standard/custom)</label>
+                                <input type="text" id="packaging" name="packaging">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="incoterms">Incoterms (EXW / FOB / CIF / DDP – if applicable)</label>
+                                <input type="text" id="incoterms" name="incoterms">
+                            </div>
+                        </div>
+
+                        <!-- Section 8: Additional Information -->
+                        <div class="form-section" data-step="8">
+                            <h3>8. Additional Information</h3>
+                            
+                            <div class="form-group">
+                                <label for="certifications">Any certifications required</label>
+                                <input type="text" id="certifications" name="certifications" placeholder="e.g., ISO, FDA, CE">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quality_req">Special quality or inspection requirements</label>
+                                <textarea id="quality_req" name="quality_req" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Other comments or expectations</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            
+                            <div class="form-note">
+                                <p><strong>Submission Note:</strong> Please review all your information before submitting. Our team will respond within 24-48 hours with a detailed quotation and technical support.</p>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" id="prevBtn" style="display: none;">Previous</button>
+                            <button type="button" class="btn-next" id="nextBtn">Next</button>
+                            <button type="submit" class="btn-primary" id="submitBtn" style="display: none;">Submit Inquiry</button>
                         </div>
                     </form>
                 </div>
@@ -178,47 +571,19 @@
     <!-- Map Section -->
     <section class="map-section fade-in">
         <div class="container">
-            <h2>Our Locations</h2>
+            <h2>Our Location</h2>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14765.935377647962!2d73.36186855541992!3d22.297533899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fd9e34e29eac1%3A0xa00064b5cfbc04c6!2sSwasttik%20Plastic%20Industries!5e0!3m2!1sen!2sin!4v1745663709836!5m2!1sen!2sin" width="100%" height="450" style="border:0; margin: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <!-- width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14765.935377647962!2d73.36186855541992!3d22.297533899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fd9e34e29eac1%3A0xa00064b5cfbc04c6!2sSwasttik%20Plastic%20Industries!5e0!3m2!1sen!2sin!4v1745663709836!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Offices Section -->
-    <!-- <section class="offices-section">
-        <div class="container">
-            <h2 class="section-title">Our Global Offices</h2>
-            <div class="offices-grid">
-                <div class="office-card">
-                    <h3>United States</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Park<br>Boston, MA 02134</p>
-                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
-                    <p><i class="fas fa-envelope"></i> us@kelvincomposites.com</p>
-                </div>
-                <div class="office-card">
-                    <h3>Germany</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Industriestraße 45<br>28195 Bremen</p>
-                    <p><i class="fas fa-phone"></i> +49 421 1234567</p>
-                    <p><i class="fas fa-envelope"></i> europe@kelvincomposites.com</p>
-                </div>
-                <div class="office-card">
-                    <h3>Singapore</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 10 Tuas South Street<br>Singapore 637015</p>
-                    <p><i class="fas fa-phone"></i> +65 6123 4567</p>
-                    <p><i class="fas fa-envelope"></i> asia@kelvincomposites.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    CTA Section -->
+    <!-- CTA Section -->
     <section class="cta-section fade-in">
         <div class="container">
             <h2>Ready to Discuss Your Project?</h2>
             <p>Contact our team of experts to find the perfect composite solution for your needs.</p>
-            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            <a href="#contact-form" class="btn">Get Started Now</a>
         </div>
     </section>
 
@@ -227,15 +592,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="NA" class="footer-logo">
-                    <p>we transform your ideas into high-quality plastic components with precision, innovation, and care.</p>
-                    <!-- <p>Innovative composite solutions for marine, industrial, and aerospace applications.</p> -->
-                    <!-- <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div> -->
+                    <img src="872e34ef-3af0-4bcc-a413-ad69a7ad9cef-removebg-preview.png" alt="Logo" class="footer-logo">
+                    <p>We transform your ideas into high-quality plastic components with precision, innovation, and care.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
@@ -259,9 +617,9 @@
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 916/2 wagodia gidc 391760 vadodara gujarat.</li>
-                        <li><i class="fas fa-phone"></i>+91 9157757979</li>
-                        <li><i class="fas fa-envelope"></i>Swasttikplasticindustries@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 916/2 wagodia gidc 391760 vadodara gujarat</li>
+                        <li><i class="fas fa-phone"></i> +91 9157757979</li>
+                        <li><i class="fas fa-envelope"></i> Swasttikplasticindustries@gmail.com</li>
                     </ul>
                 </div>
             </div>
@@ -275,79 +633,225 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919157757979" class="whatsapp-float" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Chat" />
+    </a>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("HMu1y-kUy2u2fBps3");
+       })();
+    </script>
 
     <script>
-        // Intersection Observer to add the 'visible' class when elements are in view
-        document.addEventListener("DOMContentLoaded", function () {
-          const fadeElements = document.querySelectorAll('.fade-in'); // All elements with fade-in class
+        // Multi-step form navigation
+        let currentStep = 1;
+        const totalSteps = 8;
         
-          // Options for IntersectionObserver (only trigger when the element is 50% visible)
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressFill = document.getElementById('progressFill');
+        const currentStepText = document.getElementById('currentStep');
+        
+        function showStep(step) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show current section
+            const currentSection = document.querySelector(`.form-section[data-step="${step}"]`);
+            if (currentSection) {
+                currentSection.classList.add('active');
+            }
+            
+            // Update progress bar
+            const progress = (step / totalSteps) * 100;
+            progressFill.style.width = progress + '%';
+            
+            // Update step indicator
+            currentStepText.textContent = `Step ${step}`;
+            
+            // Show/hide navigation buttons
+            prevBtn.style.display = step === 1 ? 'none' : 'inline-block';
+            nextBtn.style.display = step === totalSteps ? 'none' : 'inline-block';
+            submitBtn.style.display = step === totalSteps ? 'inline-block' : 'none';
+            
+            // Scroll to top of form
+            document.querySelector('.contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function validateCurrentStep() {
+            const currentSection = document.querySelector(`.form-section[data-step="${currentStep}"]`);
+            const requiredFields = currentSection.querySelectorAll('[required]');
+            
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    field.focus();
+                    alert('Please fill in all required fields marked with *');
+                    return false;
+                }
+            }
+            
+            // Special validation for checkboxes in step 2
+            if (currentStep === 2) {
+                const productChecked = currentSection.querySelectorAll('input[name="product_type"]:checked').length > 0;
+                const industryChecked = currentSection.querySelectorAll('input[name="industry"]:checked').length > 0;
+                
+                if (!productChecked) {
+                    alert('Please select at least one Product Type');
+                    return false;
+                }
+                
+                if (!industryChecked) {
+                    alert('Please select at least one Industry Sector');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        nextBtn.addEventListener('click', function() {
+            if (validateCurrentStep()) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+        
+        prevBtn.addEventListener('click', function() {
+            currentStep--;
+            showStep(currentStep);
+        });
+        
+        // Initialize first step
+        showStep(1);
+        
+        // Intersection Observer for fade-in animations
+        document.addEventListener("DOMContentLoaded", function () {
+          const fadeElements = document.querySelectorAll('.fade-in');
+        
           const options = {
-            root: null, // Defaults to viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.5
+            threshold: 0.2
           };
         
-          const observer = new IntersectionObserver((entries, observer) => {
+          const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once it's visible
+                observer.unobserve(entry.target);
               }
             });
           }, options);
         
           fadeElements.forEach(element => {
-            observer.observe(element); // Start observing the element
+            observer.observe(element);
           });
         });
-    </script>
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        // Show/hide industry other field
+        document.getElementById('industry-other-check').addEventListener('change', function() {
+            const otherField = document.getElementById('industry-other');
+            otherField.style.display = this.checked ? 'block' : 'none';
+            if (!this.checked) {
+                otherField.value = '';
+            }
+        });
 
-
-    <script type="text/javascript">
-       (function(){
-          emailjs.init("HMu1y-kUy2u2fBps3"); // Your EmailJS Public key
-       })();
-    </script>
-
-
-
-    <script>
+        // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
         
             const form = this;
-        
+            
+            // Collect checkbox values
+            const productTypes = Array.from(form.querySelectorAll('input[name="product_type"]:checked'))
+                .map(cb => cb.value).join(', ') || 'Not specified';
+            const industries = Array.from(form.querySelectorAll('input[name="industry"]:checked'))
+                .map(cb => cb.value).join(', ') || 'Not specified';
+            
+            // Add industry other if checked
+            const industryOther = form.querySelector('#industry-other').value;
+            const finalIndustries = industries + (industryOther ? ': ' + industryOther : '');
+            
+            // Create formatted data object for email
+            const formData = {
+                company: form.company.value,
+                name: form.name.value,
+                designation: form.designation.value || 'Not provided',
+                email: form.email.value,
+                phone: form.phone.value,
+                country: form.country.value,
+                product_type: productTypes,
+                industry: finalIndustries,
+                material: form.material.value || 'Not specified',
+                temperature: form.temperature.value || 'Not specified',
+                special_req: form.special_req.value || 'None',
+                drawing_available: form.querySelector('input[name="drawing_available"]:checked')?.value || 'Not specified',
+                dimensions: form.dimensions.value || 'Not specified',
+                cable_diameter: form.cable_diameter.value || 'Not applicable',
+                qty_per_piece: form.qty_per_piece.value || 'Not specified',
+                customization: form.customization.value || 'None',
+                annual_qty: form.annual_qty.value,
+                trial_qty: form.trial_qty.value || 'Not specified',
+                target_price: form.target_price.value || 'Not specified',
+                delivery_location: form.delivery_location.value || 'Not specified',
+                custom_moulded: form.querySelector('input[name="custom_moulded"]:checked')?.value || 'Not specified',
+                tooling: form.querySelector('input[name="tooling"]:checked')?.value || 'Not specified',
+                production_volume: form.production_volume.value || 'Not specified',
+                timeline: form.timeline.value || 'Not specified',
+                lead_time: form.lead_time.value || 'Not specified',
+                packaging: form.packaging.value || 'Standard',
+                incoterms: form.incoterms.value || 'Not specified',
+                certifications: form.certifications.value || 'None required',
+                quality_req: form.quality_req.value || 'Standard',
+                message: form.message.value || 'No additional comments'
+            };
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
             // Send to Owner
-            emailjs.sendForm('service_f2tvfjp', 'template_l2o9xsd', form)
+            emailjs.send('service_f2tvfjp', 'template_l2o9xsd', formData)
                 .then(function(response) {
                     console.log('Owner Email Sent!', response.status, response.text);
                 
                     // Then send confirmation to user
-                    emailjs.sendForm('service_f2tvfjp', 'template_tauitr3', form)
+                    emailjs.send('service_f2tvfjp', 'template_tauitr3', formData)
                         .then(function(response) {
                             console.log('Confirmation Email Sent!', response.status, response.text);
-                            alert('Thank you! Your message has been sent.');
+                            alert('✅ Thank you! Your inquiry has been submitted successfully. We will contact you within 24-48 hours.');
                             form.reset();
+                            currentStep = 1;
+                            showStep(1);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Submit Inquiry';
                         }, function(error) {
                             console.log('FAILED sending confirmation email...', error);
-                            alert('Oops! Confirmation email failed.');
+                            alert('✅ Your inquiry was received successfully!');
+                            form.reset();
+                            currentStep = 1;
+                            showStep(1);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Submit Inquiry';
                         });
                     
                 }, function(error) {
                     console.log('FAILED sending owner email...', error);
-                    alert('Oops! Something went wrong.');
+                    alert('❌ Oops! Something went wrong. Please try again or contact us directly at +91 9157757979');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Inquiry';
                 });
         });
     </script>
-
-
-    <a href="https://wa.me/9157757979" class="whatsapp-float" target="_blank">
-        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Chat" />
-    </a>
 
 </body>
 </html>
