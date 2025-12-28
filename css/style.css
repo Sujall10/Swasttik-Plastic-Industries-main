@@ -626,7 +626,10 @@ a:hover {
 }
 
 .footer-col ul li {
+    margin-left: 0px;
     margin-bottom: 10px;
+    font-size: 14px;
+    margin-right: -45px;
 }
 
 .footer-col ul li a {
