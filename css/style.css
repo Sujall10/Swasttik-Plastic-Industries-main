@@ -19,21 +19,27 @@
     box-sizing: border-box;
 }
 
-/* Initial state: element is transparent */
-.fade-in {
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-  }
-  
-  .fade-in.visible {
-    opacity: 1;
-  }
-  
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--secondary-color);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Initial state: element is transparent */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+  
+.fade-in.visible {
+    opacity: 1;
 }
 
 .container {
@@ -170,17 +176,19 @@ a:hover {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--light-color);
+    width: 100%;
 }
 
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px;
 }
 
 .logo img {
     height: 50px;
+    max-width: 100%;
 }
 
 .main-nav ul {
@@ -260,11 +268,13 @@ a:hover {
     min-height: 600px;
     overflow: hidden;
     background-color: var(--dark-color);
+    width: 100%;
 }
 
 .hero-slider {
     position: relative;
     height: 100%;
+    width: 100%;
 }
 
 .slide {
@@ -296,9 +306,10 @@ a:hover {
     transform: translate(-50%, -50%);
     text-align: center;
     color: var(--white);
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     z-index: 2;
+    padding: 0 20px;
 }
 
 .slide-content h1 {
@@ -346,6 +357,7 @@ a:hover {
 .about-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .about-section .container {
@@ -372,6 +384,8 @@ a:hover {
 
 .about-image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
@@ -380,11 +394,12 @@ a:hover {
 .products-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -428,6 +443,7 @@ a:hover {
 .applications-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .applications-tabs {
@@ -440,6 +456,7 @@ a:hover {
 .tab-header {
     display: flex;
     background-color: var(--dark-color);
+    flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -452,6 +469,9 @@ a:hover {
     font-size: 14px;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
 }
 
 .tab-btn.active {
@@ -478,6 +498,8 @@ a:hover {
 
 .tab-image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
 }
 
@@ -508,6 +530,7 @@ a:hover {
 .testimonials-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .testimonials-slider {
@@ -576,6 +599,7 @@ a:hover {
     background-color: var(--dark-color);
     color: var(--white);
     text-align: center;
+    width: 100%;
 }
 
 .cta-section h2 {
@@ -589,6 +613,7 @@ a:hover {
     max-width: 700px;
     margin: 0 auto 30px;
     color: var(--text-light);
+    padding: 0 20px;
 }
 
 /* Footer */
@@ -596,6 +621,7 @@ a:hover {
     background-color: var(--dark-color);
     color: var(--white);
     padding: 60px 0 0;
+    width: 100%;
 }
 
 .footer-grid {
@@ -626,6 +652,7 @@ a:hover {
 .footer-logo {
     height: 50px;
     margin-bottom: 20px;
+    max-width: 100%;
 }
 
 .footer p {
@@ -660,7 +687,6 @@ a:hover {
     margin-left: 0px;
     margin-bottom: 10px;
     font-size: 14px;
-    margin-right: -45px;
 }
 
 .footer-col ul li a {
@@ -676,7 +702,7 @@ a:hover {
 .contact-info li {
     margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     color: var(--text-light);
 }
 
@@ -685,6 +711,8 @@ a:hover {
     color: var(--primary-color);
     width: 20px;
     text-align: center;
+    margin-top: 3px;
+    flex-shrink: 0;
 }
 
 .footer-bottom {
@@ -693,12 +721,18 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-bottom p {
     margin: 0;
     font-size: 14px;
     color: var(--text-light);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -718,6 +752,7 @@ a:hover {
     text-align: center;
     position: relative;
     color: var(--white);
+    width: 100%;
 }
 
 .page-banner h1 {
@@ -732,6 +767,7 @@ a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap;
 }
 
 .breadcrumb-item {
@@ -757,6 +793,7 @@ a:hover {
 .about-company-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .section-header {
@@ -783,6 +820,7 @@ a:hover {
 .section-header p {
     font-size: 18px;
     color: var(--text-light);
+    padding: 0 20px;
 }
 
 .about-company-content {
@@ -807,6 +845,8 @@ a:hover {
 
 .about-image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
@@ -815,11 +855,12 @@ a:hover {
 .mission-vision-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .mv-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -858,6 +899,7 @@ a:hover {
 .history-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .timeline {
@@ -952,6 +994,7 @@ a:hover {
 .team-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .team-grid {
@@ -1005,6 +1048,7 @@ a:hover {
 .products-overview-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .products-tabs {
@@ -1038,6 +1082,7 @@ a:hover {
 .product-categories-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .categories-grid {
@@ -1081,6 +1126,7 @@ a:hover {
 .product-features-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
+    width: 100%;
 }
 
 .features-grid {
@@ -1124,6 +1170,7 @@ a:hover {
 .tech-specs-section {
     padding: 80px 0;
     background-color: var(--light-color);
+    width: 100%;
 }
 
 .specs-tabs {
@@ -1136,6 +1183,7 @@ a:hover {
 .specs-tab-header {
     display: flex;
     background-color: var(--dark-color);
+    flex-wrap: wrap;
 }
 
 .specs-tab-btn {
@@ -1148,6 +1196,9 @@ a:hover {
     font-size: 14px;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
 }
 
 .specs-tab-btn.active {
@@ -1169,6 +1220,8 @@ a:hover {
 .specs-table {
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
 }
 
 .specs-table th, 
@@ -1177,6 +1230,7 @@ a:hover {
     text-align: left;
     border-bottom: 1px solid var(--light-color);
     color: var(--text-light);
+    min-width: 120px;
 }
 
 .specs-table th {
@@ -1213,7 +1267,7 @@ form {
     gap: 15px;
 }
 
-input[type="text"], input[type="email"], textarea {
+input[type="text"], input[type="email"], input[type="tel"], textarea, select {
     padding: 12px;
     font-size: 14px;
     border: 1px solid var(--light-color);
@@ -1224,7 +1278,7 @@ input[type="text"], input[type="email"], textarea {
     color: var(--text-color);
 }
 
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus, select:focus {
     border-color: var(--primary-color);
     outline: none;
 }
@@ -1233,7 +1287,6 @@ textarea {
     resize: vertical;
     min-height: 120px;
 }
-
 
 .whatsapp-float {
     position: fixed;
@@ -1244,12 +1297,16 @@ textarea {
     height: 48px;
     cursor: pointer;
     transition: transform 0.3s ease;
-  }
+}
   
 .whatsapp-float:hover {
     transform: scale(1.1);
-  }
+}
 
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+}
 
 button[type="submit"] {
     padding: 12px 25px;
@@ -1266,28 +1323,12 @@ button[type="submit"]:hover {
     background-color: var(--accent-color);
 }
 
-.btn {
-    background-color: var(--primary-color);
-    color: var(--black);
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--accent-color);
-}
-
 /* Contact Section */
 .contact-section {
     padding: 80px 0;
     background-color: var(--secondary-color);
     color: var(--text-color);
+    width: 100%;
 }
 
 .contact-info {
@@ -1306,6 +1347,7 @@ button[type="submit"]:hover {
     font-size: 18px;
     margin-bottom: 30px;
     color: var(--text-light);
+    padding: 0 20px;
 }
 
 .contact-details {
@@ -1319,6 +1361,7 @@ button[type="submit"]:hover {
     text-align: center;
     flex: 1;
     max-width: 300px;
+    min-width: 250px;
     padding: 20px;
     background-color: var(--light-color);
     border-radius: 8px;
@@ -1430,6 +1473,7 @@ button[type="submit"]:hover {
     padding: 80px 0;
     background-color: var(--light-color);
     text-align: center;
+    width: 100%;
 }
 
 .application-grid-section .section-title {
@@ -1443,21 +1487,21 @@ button[type="submit"]:hover {
     font-size: 18px;
     color: var(--text-light);
     margin-bottom: 40px;
+    padding: 0 20px;
 }
 
 .application-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .application-card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background-color: var(--secondary-color);
     padding: 30px 20px;
-    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1469,10 +1513,13 @@ button[type="submit"]:hover {
     box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
 }
 
-.application-card img{
-    width: 50%;
+.application-card img {
+    width: 80%;
+    max-width: 200px;
     height: auto;
+    margin-bottom: 20px;
 }
+
 .application-card i {
     font-size: 40px;
     color: var(--primary-color);
@@ -1491,10 +1538,10 @@ button[type="submit"]:hover {
     margin: 0;
 }
 
-
 /* Responsive Styles */
 @media (max-width: 992px) {
     .about-section .container,
+    .about-company-content,
     .tab-content.active {
         flex-direction: column;
     }
@@ -1505,9 +1552,6 @@ button[type="submit"]:hover {
     
     .tab-image {
         margin-bottom: 30px;
-    }
-    .about-company-content {
-        flex-direction: column;
     }
     
     .about-text, .about-image {
@@ -1521,7 +1565,7 @@ button[type="submit"]:hover {
     .timeline-item {
         width: 100%;
         padding-left: 80px;
-        padding-right: 0;
+        padding-right: 20px;
     }
     
     .timeline-item:nth-child(odd), 
@@ -1538,6 +1582,14 @@ button[type="submit"]:hover {
 
     .product-features {
         grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .section-title {
+        font-size: 32px;
     }
 }
 
@@ -1588,22 +1640,30 @@ button[type="submit"]:hover {
     .top-bar .container {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
     
-    .contact-info {
-        margin-bottom: 10px;
+    .contact-info span {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        margin-left: 10px;
+        font-size: 14px;
     }
     
     .hero {
-        position: relative;
-        height: 80vh;
-        min-height: 600px;
-        overflow: hidden;
-        background-color: var(--dark-color);
+        height: 70vh;
+        min-height: 500px;
     }
     
     .slide-content h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .slide-content p {
@@ -1611,7 +1671,7 @@ button[type="submit"]:hover {
     }
     
     .section-title {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .page-banner {
@@ -1634,6 +1694,20 @@ button[type="submit"]:hover {
         height: 200px;
     }
 
+    .tab-header {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+    
+    .tab-btn.active {
+        border-bottom: none;
+        border-left: 3px solid var(--primary-color);
+    }
+
     .specs-tab-header {
         flex-direction: column;
     }
@@ -1650,10 +1724,14 @@ button[type="submit"]:hover {
     }
     
     .specs-table {
-        display: block;
-        overflow-x: auto;
+        font-size: 13px;
     }
 
+    .specs-table th,
+    .specs-table td {
+        padding: 10px;
+        min-width: 100px;
+    }
     
     .contact-details {
         flex-direction: column;
@@ -1662,25 +1740,61 @@ button[type="submit"]:hover {
 
     .contact-item {
         margin-bottom: 20px;
+        width: 100%;
+        max-width: none;
     }
 
     .contact-form {
         margin-top: 30px;
+        padding: 25px;
     }
 
     .whatsapp-float {
-      bottom: 15px;
-      right: 15px;
-      width: 40px;
-      height: 40px;
+        bottom: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
     }
-      
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+    }
+
+    .cta-section h2 {
+        font-size: 28px;
+    }
+
+    .cta-section p {
+        font-size: 16px;
+    }
+
+    .application-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
 
     .slide-content h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .slide-content p {
@@ -1691,18 +1805,13 @@ button[type="submit"]:hover {
         padding: 8px 15px;
         font-size: 12px;
     }
-    
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
+
+    .section-title {
+        font-size: 24px;
     }
-    
-    .footer-links {
-        margin-top: 15px;
-    }
-    
-    .footer-links a {
-        margin: 0 10px;
+
+    .page-banner h1 {
+        font-size: 28px;
     }
 
     .timeline::before {
@@ -1710,11 +1819,12 @@ button[type="submit"]:hover {
     }
     
     .timeline-item {
-        padding-left: 60px;
+        padding-left: 50px;
+        padding-right: 10px;
     }
     
     .timeline-year {
-        font-size: 16px;
+        font-size: 14px;
         padding: 6px 15px;
     }
     
@@ -1723,7 +1833,7 @@ button[type="submit"]:hover {
     }
     
     .timeline-content h4 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .features-grid {
@@ -1734,6 +1844,14 @@ button[type="submit"]:hover {
         font-size: 16px;
     }
 
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form h3 {
+        font-size: 20px;
+    }
+
     .contact-form button {
         padding: 10px 20px;
         font-size: 14px;
@@ -1741,10 +1859,11 @@ button[type="submit"]:hover {
 
     .social-icons a {
         font-size: 20px;
+        margin: 0 10px;
     }
+
     .application-card {
         padding: 25px 15px;
-        margin: 10px;
     }
 
     .application-card i {
@@ -1758,13 +1877,31 @@ button[type="submit"]:hover {
     .application-card p {
         font-size: 13px;
     }
-    .tab-header{
-        align-items: center;
-        flex-direction: column;
+
+    .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
     }
 
-    .tab-btn.active {
-        border-bottom: none;
-        border-left: 3px solid var(--primary-color);
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 400px;
     }
 }
