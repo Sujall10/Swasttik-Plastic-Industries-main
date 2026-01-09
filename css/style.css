@@ -1905,3 +1905,271 @@ button[type="submit"]:hover {
         min-height: 400px;
     }
 }
+
+/* Hero Video Styles - Complete Mobile Fix */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    background-color: #0f0f0f;
+}
+
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 90%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.slide-content h1 {
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease-out;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.slide-content p {
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+    color: #e0e0e0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.btn-primary {
+    background: #D4AF37;
+    color: #000000;
+    border: 2px solid #D4AF37;
+}
+
+.btn-primary:hover {
+    background: #B8941E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        height: 80vh;
+        min-height: 450px;
+    }
+
+    .slide-content {
+        width: 85%;
+    }
+
+    .btn {
+        padding: 12px 35px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        min-height: 500px;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .slide-content {
+        width: 90%;
+        padding: 0 15px;
+    }
+
+    .slide-content h1 {
+        margin-bottom: 1rem;
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .slide-content p {
+        margin-bottom: 1.5rem;
+        font-size: clamp(1rem, 3vw, 1.3rem);
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+    .hero {
+        height: 100vh;
+        min-height: 450px;
+    }
+
+    .slide-content {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .slide-content h1 {
+        margin-bottom: 0.8rem;
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .slide-content p {
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+}
+
+/* Portrait orientation optimization */
+@media (orientation: portrait) and (max-width: 768px) {
+    .hero-video {
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .slide-content h1 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .slide-content p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 400px) {
+    .hero {
+        min-height: 400px;
+    }
+
+    .slide-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ensure proper video sizing on all devices */
+@supports (-webkit-touch-callout: none) {
+    /* iOS specific fixes */
+    .hero-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transform: none;
+    }
+    
+    .hero {
+        position: relative;
+    }
+}
